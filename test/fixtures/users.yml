@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  employee_id: 
+  password: MyString
+  auth: 
+  entry_date: 2015-12-17
+  retire_date: 2015-12-17
+
+two:
+  name: MyString
+  employee_id: 
+  password: MyString
+  auth: 
+  entry_date: 2015-12-17
+  retire_date: 2015-12-17
