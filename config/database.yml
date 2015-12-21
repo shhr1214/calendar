@@ -9,10 +9,10 @@ default: &default
   adapter: mysql2
   encoding: utf8
   database: c9
-  username: <%=ENV['shhr1214']%>
-  host: <%=ENV['localhost']%>
-  pool: 5
-  timeout: 5000
+  #username: <%=ENV['shhr1214']%>
+  username: root
+  #host: <%=ENV['localhost']%>
+  hostname: 127.0.0.1
 
 development:
   <<: *default
