@@ -1,0 +1,26 @@
+<p id='notice'><%= notice %></p>
+
+<p>
+  <strong>名前：</strong><br>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>社員番号：</strong>
+  <%= @user.employee_id %>
+</p>
+
+<p>
+  <strong>権限：</strong>
+  <%= @user.auth %>
+</p>
+
+<p>
+  <strong>登録日：</strong>
+  <%= @user.entry_date %>
+</p>
+
+<p>
+  <strong>退職日：</strong>
+  <%= @user.retire_date %>
+</p>

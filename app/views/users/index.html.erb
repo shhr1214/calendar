@@ -8,9 +8,9 @@
       <td><%=user.auth %></td>
       <td><%=user.entry_date %></td>
       <td><%=user.retire_date %></td>
+      <td><%= link_to 'Edit', edit_user_path(user) %></td>
     </tr>
   <% end %>
 </table>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
