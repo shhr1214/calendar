@@ -26,6 +26,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'i18n', '0.7.0'
 
+gem 'less-rails'
+gem 'therubyracer',platforms: :ruby
+gem 'execjs'
+gem 'autoprefixer-rails'
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'twitter-bootstrap-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

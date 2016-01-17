@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  protect_from_forgery except: [:update]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -30,6 +31,15 @@ class UsersController < ApplicationController
   end
 
   def update
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to @user, notice: 'User was successfully created!!' }
+        #format.json {}
+      else
+        #format.html
+        #format.json
+      end
+    end
   end
 
   def destroy
