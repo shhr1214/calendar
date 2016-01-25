@@ -1,46 +1,63 @@
-<%- model_class = Event -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:start_time) %></th>
-      <th><%= model_class.human_attribute_name(:end_time) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:place) %></th>
-      <th><%= model_class.human_attribute_name(:author_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= link_to event.id, event_path(event) %></td>
-        <td><%= event.title %></td>
-        <td><%= event.start_time %></td>
-        <td><%= event.end_time %></td>
-        <td><%= event.description %></td>
-        <td><%= event.place %></td>
-        <td><%= event.author_id %></td>
-        <td><%=l event.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_event_path(event), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      event_path(event),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <h3>Hack Scheduler</h3>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_event_path,
-            :class => 'btn btn-primary' %>
+  <div class="btn-group">
+    <button class="btn" data-calendar-nav="prev"><i class="fa fa-angle-left"></i></button>
+    <button class="btn" data-calendar-nav="today">Today</button>
+    <button class="btn" data-calendar-nav="next"><i class="fa fa-angle-right"></i></button>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn" data-calendar-view="year">Year</button>
+    <button class="btn" data-calendar-view="month">Month</button>
+    <button class="btn" data-calendar-view="week">Week</button>
+    <button class="btn" data-calendar-view="day">Day</button>
+
+    <%= link_to t('new', default: t("helpers.links.new")),  new_event_path,
+                  class: 'btn btn-primary' %>
+
+  </div>
+</div>
+<div id="calendar"></div>
+
+<script type="text/javascript">
+  //option
+  "use strict";
+  //event data
+  var events = {
+      "id": 1222,                   // id
+      "title": "Event 1222",        // タイトル
+      "url": "http://kwski.net",    // リンク
+      "class": "event-important",   // class
+      "start": 1507075748000,       // 開始日時(ミリ秒まで)
+      "end": 1508089748000          // 終了日時(ミリ秒まで)
+  };
+  // option
+  var options = {
+        tmpl_path: '/tmpls/',    // テンプレートファイル パス
+        events_source: function () { return [events]; },    //  イベントデータ
+        //language: 'ja-JP',       // カレンダー日本語化
+        onAfterViewLoad: function(view) {
+            $('.page-header h3').text(this.getTitle());
+            $('.btn-group button').removeClass('active');
+            $('button[data-calendar-view="' + view +    '"]').addClass('active');
+        },
+        tmpl_path: "/event_calendar_tmpl/",
+    };
+  //view calendar
+  var calendar = $("#calendar").calendar(options);
+  //navigation click
+  $('.btn-group button[data-calendar-nav]').each(function() {
+      var $this = $(this);
+      $this.click(function() {
+        calendar.navigate($this.data('calendar-nav'));
+        });
+      });
+  //view switch button click
+  $('.btn-group button[data-calendar-view]').each(function() {
+      var $this = $(this);
+      $this.click(function() {
+        calendar.view($this.data('calendar-view'));
+        });
+      });
+  </script>

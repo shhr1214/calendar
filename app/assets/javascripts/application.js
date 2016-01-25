@@ -13,6 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require moment
+//= require bootstrap-datetimepicker
 //= require turbolinks
 //= require underscore
-//= require_tree .
+//= require_tree
+
+var data = {'data-format': 'yyyy-MM-dd hh:mm:ss' };
+$(function(){
+    $('.datepicker').attr(data);
+    $('.datepicker').datetimepicker();
+});

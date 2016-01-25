@@ -33,6 +33,9 @@ gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'twitter-bootstrap-rails'
 gem 'underscore-rails'
+gem 'momentjs-rails'
+gem 'bootstrap-datetimepicker-rails'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
