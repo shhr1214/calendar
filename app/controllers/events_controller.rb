@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :set_event, only: %i(show edit update destroy)
 
   def new
     @event = Event.new
@@ -18,7 +19,7 @@ class EventsController < ApplicationController
         }
         # format.json { render action: 'show', status: :created, location: @event }
       else
-        # format.html { render action: 'new' }
+        format.html { render action: 'new' }
         # format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -39,7 +40,7 @@ class EventsController < ApplicationController
         }
         #format.json {}
       else
-        #format.html
+        format.html { render 'new' }
         #format.json
       end
     end
