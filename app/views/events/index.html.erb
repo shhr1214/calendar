@@ -30,25 +30,25 @@
   //option
   "use strict";
   //event data
-  var events = {
-      "id": 1222,                   // id
-      "title": "Event 1222",        // タイトル
-      "url": "http://kwski.net",    // リンク
-      "class": "event-important",   // class
-      "start": 1507075748000,       // 開始日時(ミリ秒まで)
-      "end": 1508089748000          // 終了日時(ミリ秒まで)
-  };
+  //var events = {
+  //    "id": 1222,                   // id
+  //    "title": "Event 1222",        // タイトル
+  //    "link": "http://kwski.net",    // リンク
+  //    "class": "event-important",   // class
+  //    "start": 1507075748000,       // 開始日時(ミリ秒まで)
+  //    "end": 1508089748000          // 終了日時(ミリ秒まで)
+  //};
   // option
   var options = {
       tmpl_path: '/tmpls/',    // テンプレートファイル パス
-      events_source: function () { return [events]; },    //  イベントデータ
+      events_source: function () { return gon.events; },    //  イベントデータ
       //language: 'ja-JP',       // カレンダー日本語化
       onAfterViewLoad: function(view) {
           $('.page-header h3').text(this.getTitle());
           $('.btn-group button').removeClass('active');
           $('button[data-calendar-view="' + view +    '"]').addClass('active');
       },
-      tmpl_path: "/event_calendar_tmpl/",
+      tmpl_path: "/event_calendar_tmpl/"
   };
   //view calendar
   var calendar = $("#calendar").calendar(options);

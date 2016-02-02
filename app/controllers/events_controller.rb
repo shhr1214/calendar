@@ -1,3 +1,5 @@
+require 'time'
+
 class EventsController < ApplicationController
   before_action :set_event, only: %i(show edit update destroy)
 
@@ -6,6 +8,8 @@ class EventsController < ApplicationController
   end
 
   def index
+    # TODO: 返り値がないの気持ち悪い。
+    event2json
   end
 
   def create
@@ -19,7 +23,9 @@ class EventsController < ApplicationController
         }
         # format.json { render action: 'show', status: :created, location: @event }
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'new',
+          notice: 'Information is not enough.'
+        }
         # format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -66,5 +72,18 @@ class EventsController < ApplicationController
 
   def set_event
     @event = Event.find(params[:id])
+  end
+
+  def event2json
+    gon.events = Event.all.map do |event|
+      {
+        "id": event.id,
+        "title": event.title,
+        "url": "https://hack-scheduler-shhr1214.c9users.io/events/#{event.id}",
+        "class": "event-inverse",
+        "start": event.start_time.to_i*1000,
+        "end": event.end_time.to_i*1000,
+      }
+    end
   end
 end
