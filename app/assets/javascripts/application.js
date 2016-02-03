@@ -18,6 +18,7 @@
 //= require bootstrap-datetimepicker
 //= require turbolinks
 //= require underscore
+//= require fullcalendar
 //= require_tree
 
 $(function(){
