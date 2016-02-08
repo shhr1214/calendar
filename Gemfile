@@ -36,6 +36,7 @@ gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sprockets-rails', '>= 2.1.4'
 gem 'gon'
 gem 'fullcalendar-rails'
+gem 'default_value_for'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
