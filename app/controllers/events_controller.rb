@@ -39,7 +39,7 @@ class EventsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @event.save
+      if @event.update(event_params)
         format.html {
           redirect_to @event,
           notice: 'event was successfully created!!'

@@ -12,7 +12,7 @@ default: &default
   #username: <%=ENV['shhr1214']%>
   username: root
   #host: <%=ENV['localhost']%>
-  host: 127.0.0.1
+  host: localhost
 
 development:
   <<: *default

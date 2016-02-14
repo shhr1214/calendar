@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
-      if @user.save
+      if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully created!!' }
         #format.json {}
       else

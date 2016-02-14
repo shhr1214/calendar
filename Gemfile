@@ -25,10 +25,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'i18n', '0.7.0'
+gem 'autoprefixer-rails'
 
 gem 'therubyracer', platforms: :ruby
 gem 'execjs'
-gem 'autoprefixer-rails'
 gem 'underscore-rails'
 gem 'momentjs-rails'
 gem 'bootstrap-datetimepicker-rails'
@@ -37,8 +37,9 @@ gem 'sprockets-rails', '>= 2.1.4'
 gem 'gon'
 gem 'fullcalendar-rails'
 gem 'default_value_for'
+gem 'enumerize'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

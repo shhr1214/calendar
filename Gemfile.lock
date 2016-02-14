@@ -40,6 +40,7 @@ GEM
     autoprefixer-rails (6.2.3)
       execjs
       json
+    bcrypt (3.1.10)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -64,6 +65,8 @@ GEM
     debug_inspector (0.0.2)
     default_value_for (3.0.1)
       activerecord (>= 3.2.0, < 5.0)
+    enumerize (1.1.1)
+      activesupport (>= 3.2)
     erubis (2.7.0)
     execjs (2.6.0)
     fullcalendar-rails (2.6.0.0)
@@ -176,6 +179,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
+  bcrypt
   better_errors
   binding_of_caller
   bootstrap-datetimepicker-rails
@@ -183,6 +187,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   default_value_for
+  enumerize
   execjs
   fullcalendar-rails
   gon

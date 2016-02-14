@@ -14,12 +14,12 @@
 ActiveRecord::Schema.define(version: 3) do
 
   create_table "events", force: :cascade do |t|
-    t.string   "title",       limit: 255,   null: false
-    t.datetime "start_time",                null: false
-    t.datetime "end_time",                  null: false
-    t.text     "description", limit: 65535, null: false
-    t.string   "place",       limit: 255,   null: false
-    t.integer  "author_id",   limit: 4,     null: false
+    t.string   "title",       limit: 255
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.text     "description", limit: 65535
+    t.string   "place",       limit: 255
+    t.integer  "author_id",   limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
@@ -32,14 +32,14 @@ ActiveRecord::Schema.define(version: 3) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",        limit: 255,                        null: false
-    t.integer  "employee_id", limit: 4,                          null: false
-    t.string   "password",    limit: 255,                        null: false
-    t.integer  "auth",        limit: 4,   default: 1,            null: false
-    t.date     "entry_date",              default: '2016-01-05', null: false
-    t.date     "retire_date",             default: '9999-12-31', null: false
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.string   "name",            limit: 255
+    t.integer  "employee_id",     limit: 4
+    t.string   "password_digest", limit: 255
+    t.integer  "auth",            limit: 4
+    t.date     "entry_date"
+    t.date     "retire_date"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
 end

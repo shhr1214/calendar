@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  extend Enumerize
+  enumerize :auth, in: %i(admin normal)
+
   has_many :participants
   has_many :events, through: :participants
 
