@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   protect_from_forgery except: [:update]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: %i(new create)
+  before_action :set_user, only: %i(show edit update destroy)
 
   def new
     @user = User.new
@@ -13,14 +14,13 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created!!' }
-        #format.json {}
-      else
-        #format.html
-        #format.json
-      end
+    if @user.save
+      redirect_to @user, notice: 'User was successfully created!!'
+      #format.json {}
+    else
+      render 'new'
+      #format.html
+      #format.json
     end
   end
 
@@ -52,11 +52,11 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit(:name, :employee_id, :password, :auth)
-  end
+    def user_params
+      params.require(:user).permit(:name, :employee_id, :auth, :password, :password_confirmation)
+    end
 
-  def set_user
-    @user = User.find(params[:id])
-  end
+    def set_user
+      @user = User.find(params[:id])
+    end
 end

@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 3) do
     t.string   "name",            limit: 255
     t.integer  "employee_id",     limit: 4
     t.string   "password_digest", limit: 255
-    t.integer  "auth",            limit: 4
+    t.string   "auth",            limit: 255
     t.date     "entry_date"
     t.date     "retire_date"
     t.datetime "created_at",                  null: false

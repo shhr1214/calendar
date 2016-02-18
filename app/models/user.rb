@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_secure_password
   extend Enumerize
   enumerize :auth, in: %i(admin normal)
 
@@ -7,7 +8,6 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true
   validates :employee_id, presence: true
-  validates :password, presence: true
   validates :auth, presence: true
   validates :entry_date, presence: true
   validates :retire_date, presence: true

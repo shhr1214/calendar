@@ -1,10 +1,17 @@
 require 'time'
 
 class EventsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i(index show)
   before_action :set_event, only: %i(show edit update destroy)
 
   def new
-    @event = Event.new
+    if params[:date].present?
+      @event = Event.new(author: current_user,
+                         start_time: params[:date].to_datetime,
+                         end_time: params[:date].to_datetime)
+    else
+      @event = Event.new(author: current_user)
+    end
   end
 
   def index

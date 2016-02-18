@@ -1,7 +1,3 @@
-<div class="page-header">
-  <h3>Hack Scheduler</h3>
-</div>
-
 <div id="calendar"></div>
 
 <script type="text/javascript">
@@ -15,13 +11,11 @@
 				center: 'title',
 				right: 'month,agendaWeek,agendaDay'
 			},
-
 			defaultView: 'month',
-
       events: gon.events,
 
       dayClick: function(date, jsEvent, view) {
-        window.location.href = './events/new'
+        window.location.href = './events/new?date=' + date._d;
       }
         // put your options and callbacks here
     })
