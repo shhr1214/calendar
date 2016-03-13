@@ -39,7 +39,7 @@
   <body>
     <%= include_gon %>
 
-    <div class="navbar navbar-default navbar-static-top">
+    <div class="navbar navbar-inverse navbar-static-top">
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
           <span class="icon-bar"></span>
@@ -64,38 +64,23 @@
     </div>
 
     <div class="container">
-      <div class="row">
-        <div class="col-lg-9">
 
-          <% flash.each do |name, msg| %>
-            <% if msg.is_a?(String) %>
-              <div class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %>">
-                <button aria-hidden="true" class="close" data-dismiss="alert" type="button">&times;</button>
-                <%= content_tag :div, msg, :id => "flash_#{name}" %>
-              </div>
-            <% end %>
-          <% end %>
+      <% flash.each do |name, msg| %>
+        <% if msg.is_a?(String) %>
+          <div class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %>">
+            <button aria-hidden="true" class="close" data-dismiss="alert" type="button">&times;</button>
+            <%= content_tag :div, msg, :id => "flash_#{name}" %>
+          </div>
+        <% end %>
+      <% end %>
 
-          <%= yield %>
-        </div>
-        <div class="col-lg-3">
-          <div class="well sidebar-nav">
-            <h3>Sidebar</h3>
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/shared/comming_soon"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-      </div><!--/row-->
+      <%= yield %>
 
       <footer>
         <p>&copy; Hackers' Club 2015</p>
       </footer>
 
-    </div> <!-- /container -->
+    </div>
 
   </body>
 </html>
