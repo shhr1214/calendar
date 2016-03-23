@@ -88,8 +88,8 @@ class EventsController < ApplicationController
         "title": event.title,
         "url": "https://hack-scheduler-shhr1214.c9users.io/events/#{event.id}",
         "class": "event-inverse",
-        "start": event.start_time.to_date.to_s,
-        "end": event.end_time.to_date.to_s,
+        "start": event.start_time.to_s,
+        "end": event.end_time.to_s,
       }
     end
   end
